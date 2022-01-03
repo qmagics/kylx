@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        button {
+            width: 200px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../task/5.throttle+debounce.js"></script>
+    <button id="btn1">防抖 - 点击</button>
+    <button id="btn2">节流 - 点击</button>
+
+
+    <script>
+        const handler1 = debounce(() => { console.log('log') }, 1000);
+        btn1.addEventListener('click', handler1);
+
+        const handler2 = throttle(() => { console.log('log') }, 1000);
+        btn2.addEventListener('click', handler2);
+    </script>
+</body>
+
+</html>

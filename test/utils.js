@@ -7,7 +7,7 @@ exports.success = (testName) => {
     console.log(msg)
 }
 
-exports.fail = (testName) => {
-    const msg = `\n${num++}: ` + chalk.redBright(`${testName} => 失败`);
+exports.fail = (testName,reason) => {
+    const msg = `\n${num++}: ` + chalk.redBright(`${testName} => 失败${reason?` ｜ 原因：${reason}`:''}`);
     console.log(msg)
 }

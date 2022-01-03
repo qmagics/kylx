@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "4"
+    "chalk": "4",
+    "lodash": "^4.17.21",
+    "promises-aplus-tests": "^2.1.2"
   }
 }

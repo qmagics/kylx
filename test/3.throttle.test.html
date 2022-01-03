@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        button {
+            width: 200px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../task/3.throttle.js"></script>
+    <button id="btn">点击</button>
+
+    <script>
+        const handler = throttle(() => { console.log('log') }, 1000);
+        btn.addEventListener('click', handler);
+    </script>
+</body>
+
+</html>

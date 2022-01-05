@@ -88,7 +88,7 @@ class Promise {
                     }
                 }, 0);
             }
-            
+
             if (this.state === REJECTED) {
                 setTimeout(() => {
                     try {
@@ -127,6 +127,68 @@ class Promise {
         });
 
         return promise2;
+    }
+
+    static resolve(value) {
+        return new Promise((resolve, reject) => {
+            resolve(value);
+        })
+    }
+
+    static reject(reason) {
+        return new Promise((resolve, reject) => {
+            reject(reason)
+        })
+    }
+
+    static all(promises) {
+        return new Promise((resolve, reject) => {
+            const result = [];
+            let count = 0;
+            const processResolve = (value, index) => {
+                result[index] = value;
+                if (++count === result.length) {
+                    resolve(result);
+                }
+            }
+
+            promises.forEach((p, index) => {
+                if (p && typeof p.then === 'function') {
+                    p.then(data => {
+                        processResolve(data, index);
+                    }, reject);
+                }
+                else {
+                    processResolve(p, index);
+                }
+            })
+
+        })
+    }
+
+    static race(promises) {
+        return new Promise((resolve, reject) => {
+            promises.forEach(p => {
+                if (p && typeof p.then === 'function') {
+                    p.then(resolve, reject);
+                }
+                else {
+                    resolve(p);
+                }
+            })
+        })
+    }
+
+    catch(errHandler) {
+        return this.then(null, errHandler);
+    }
+
+    finally(cb) {
+        return this.then(data => {
+            return Promise.resolve(cb()).then(() => data);
+        }, err => {
+            return Promise.resolve(cb()).then(() => { throw err });
+        })
     }
 
 }

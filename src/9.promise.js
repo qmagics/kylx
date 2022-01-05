@@ -155,7 +155,7 @@ class Promise {
         return this.then(data => {
             return Promise.resolve(cb()).then(() => data);
         }, (e) => {
-            return Promise.resolve(cb()).then(e => { throw e })
+            return Promise.resolve(cb()).then(() => { throw e })
         })
     }
 

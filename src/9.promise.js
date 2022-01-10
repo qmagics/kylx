@@ -196,6 +196,46 @@ class Promise {
         })
     }
 
+    static allSettled(promises) {
+        return new Promise((resolve, reject) => {
+            const result = [];
+            const len = promises.length;
+            let n = 0;
+
+            const handlePromise = (index, isResolved, data) => {
+                const obj = {
+                    status: isResolved ? 'fulfilled' : 'rejected',
+                }
+
+                if (isResolved) {
+                    obj.value = data;
+                }
+                else {
+                    obj.reason = data;
+                }
+
+                result[index] = obj;
+
+                if (n++ === len - 1) {
+                    resolve(result);
+                }
+            }
+
+            promises.forEach((p, index) => {
+                if (typeof p.then === 'function') {
+                    p.then((data) => {
+                        handlePromise(index, true, data);
+                    }, (err) => {
+                        handlePromise(index, false, err);
+                    });
+                }
+                else {
+                    handlePromise(index, true, p);
+                }
+            })
+        });
+    }
+
     static race(promises) {
         return new Promise((resolve, reject) => {
             promises.forEach(p => {

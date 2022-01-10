@@ -4,6 +4,8 @@ const test6 = require('./test/6.deepClone.test');
 const test7 = require('./test/7.EventEmitter.test');
 const test12 = require('./test/12.bst.test');
 const test14 = require('./test/14.bind.test');
+const test15 = require('./test/15.flat.test');
+const test17 = require('./test/17.toTree.test');
 
 const dir = `task`;
 
@@ -21,4 +23,11 @@ test7(require(`./${dir}/7.EventEmitter`));
 test12(require(`./${dir}/12.bst`));
 
 // Bind
-test14(require(`./${dir}/14.bind`))
+test14(require(`./${dir}/14.bind`));
+
+// flat
+test15(require(`./${dir}/15.flat`));
+
+// 数组转树
+test17(require(`./${dir}/17.toTree`));
+

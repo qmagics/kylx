@@ -19,16 +19,16 @@ module.exports = (EventEmitter) => {
     }
 
     const cry = (reason) => {
-        console.log(`呜呜呜...${reason}`);
+        // console.log(`呜呜呜...${reason}`);
         RESULT.cry++;
     }
     const drink = () => {
-        console.log('咕噜咕噜咕噜...我只喝一次酒')
+        // console.log('咕噜咕噜咕噜...我只喝一次酒')
         RESULT.drink++;
     }
 
     const buy = (count) => {
-        console.log("买买买~");
+        // console.log("买买买~");
         RESULT.buy += count;
     }
 

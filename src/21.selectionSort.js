@@ -1,8 +1,8 @@
 // 选择排序
 function selectionSort(arr) {
     const len = arr.length;
-    let minIndex = 0,
-        temp;
+    let temp = undefined;
+    let minIndex = undefined;
 
     for (let i = 0; i < len - 1; i++) {
         minIndex = i;
@@ -14,9 +14,9 @@ function selectionSort(arr) {
         }
 
         // 交换当前元素和最小元素
-        temp = arr[i];
-        arr[i] = arr[minIndex];
-        arr[minIndex] = temp;
+        temp = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = temp;
     }
 
     return arr;

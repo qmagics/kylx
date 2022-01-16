@@ -59,8 +59,8 @@ class LinkedList {
         return removedNode;
     }
 
-    // 链表反转
-    reverse() {
+    // 链表反转（递归方式）
+    reverse1() {
         function r(head) {
             if (head === null || head.next === null) {
                 return head;
@@ -72,7 +72,28 @@ class LinkedList {
             return newHead;
         }
 
-        return r(this.head);
+        this.head = r(this.head);
+        return this;
+    }
+
+    // 链表反转（循环方式）
+    reverse2() {
+        let head = this.head;
+        if (head === null || head.next === null) {
+            return this;
+        }
+
+        let newHead = null; // 创建新头
+
+        while (head) { // 如果老表有头，就一直搬运
+            let node2 = head.next; // 暂存原链表的下一项
+            head.next = newHead; // 老头的next指向新头
+            newHead = head;  // 将新头指向老头
+            head = node2; // 老头指向下一项
+        }
+        this.head = newHead;
+
+        return this;
     }
 }
 
@@ -82,8 +103,8 @@ let ll = new LinkedList();
     ll.add(i)
 });
 
-ll.add(1, 100);
-const r = ll.remove(1);
+// ll.add(1, 100);
+// const r = ll.remove(1);
 // console.log('删掉了', r);
 // console.dir(ll, { depth: 1000 })
-console.dir(ll.reverse(), { depth: 1000 });
+console.dir(ll.reverse2(), { depth: 1000 });

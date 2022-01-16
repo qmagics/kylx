@@ -11,6 +11,7 @@ class LinkedList {
         this.size = 0;
     }
 
+    // 根据索引获取元素
     _node(index) {
         let current = this.head;
 
@@ -20,6 +21,7 @@ class LinkedList {
         return current;
     }
 
+    // 新增元素
     add(index, element) {
 
         // 传2个参数就是指定位置插入，一个参数就是追加
@@ -41,6 +43,7 @@ class LinkedList {
         this.size++;
     }
 
+    // 删除元素
     remove(index) {
         let removedNode;
 
@@ -99,6 +102,7 @@ class LinkedList {
 
 
 let ll = new LinkedList();
+
 [1, 2, 3, 4, 5, 6, 7, 8].forEach(i => {
     ll.add(i)
 });
@@ -108,3 +112,4 @@ let ll = new LinkedList();
 // console.log('删掉了', r);
 // console.dir(ll, { depth: 1000 })
 console.dir(ll.reverse2(), { depth: 1000 });
+console.log(ll);

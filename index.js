@@ -8,7 +8,7 @@ const test14 = require('./test/14.bind.test');
 const test15 = require('./test/15.flat.test');
 const test17 = require('./test/17.toTree.test');
 
-const dir = `task`;
+const dir = `src`;
 
 // 函数柯里化
 test1(require(`./${dir}/1.curry`));

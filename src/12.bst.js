@@ -117,14 +117,16 @@ class Tree {
     }
 }
 
-const tree = new Tree();
+module.exports = Tree;
 
-[10, 8, 19, 6, 15, 22, 20].forEach(i => tree.add(i));
+// const tree = new Tree();
 
-tree.preOrderTraversal(node => console.log(node.element));
-console.log('----')
-tree.inOrderTraversal(node => console.log(node.element));
-console.log('----')
-tree.postOrderTraversal(node => console.log(node.element));
-console.log('----')
-tree.levelOrderTraversal(node => console.log(node.element));
+// [10, 8, 19, 6, 15, 22, 20].forEach(i => tree.add(i));
+
+// tree.preOrderTraversal(node => console.log(node.element));
+// console.log('----')
+// tree.inOrderTraversal(node => console.log(node.element));
+// console.log('----')
+// tree.postOrderTraversal(node => console.log(node.element));
+// console.log('----')
+// tree.levelOrderTraversal(node => console.log(node.element));

@@ -4,7 +4,7 @@ function bubbleSort(arr) {
     let temp = undefined;
 
     for (let i = 0; i < len - 1; i++) {
-        console.log(`第${i+1}轮`);
+        console.log(`第${i + 1}轮`);
         for (let j = 0; j < len - 1 - i; j++) {
             if (arr[j] > arr[j + 1]) {
                 temp = arr[j + 1];
@@ -20,7 +20,7 @@ function bubbleSort(arr) {
     return arr;
 }
 
-console.log(bubbleSort([5, 3, 4, 2, 6, 1]))
+module.exports = bubbleSort;
 
 // 排序前 => 5 3 4 2 6 1
 // 

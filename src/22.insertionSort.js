@@ -17,4 +17,5 @@ function insertionSort(arr) {
     return arr;
 }
 
-console.log(insertionSort([5, 3, 4, 2, 6, 1]))
+module.exports = insertionSort;
+

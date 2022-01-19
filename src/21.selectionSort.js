@@ -22,6 +22,8 @@ function selectionSort(arr) {
     return arr;
 }
 
+module.exports = selectionSort;
+
 // 排序前 => [5, 3, 4, 2, 6, 1]
 
 // 第1轮 => [ 1, 3, 4, 2, 6, 5 ]

@@ -8,33 +8,23 @@ class SnapshotSandbox {
     }
 
     active() {
-
-        // 存快照
-        this.windowSnapShot = {};
-        for (const prop in window) {
-            if (window.hasOwnProperty(prop)) {
-                this.windowSnapShot[prop] = window[prop];
-            }
-        }
-
-        // 从变更属性映射表中还原
-        Object.keys(this.modifyPropsMap).forEach(prop => {
-            window[prop] = this.modifyPropsMap[prop];
-        })
+        // 保存此时的window属性快照
+        this.windowSnapshot = Object.keys(window).reduce((memo, cur) => { memo[cur] = window[cur]; return memo }, {});
+        
+        // 将属性变更表中的属性恢复到window上
+        Object.keys(this.modifyPropsMap).forEach(key => {
+            window[key] = this.modifyPropsMap[key];
+        });
     }
 
     inactive() {
-        for (const prop in window) {
-            if (window.hasOwnProperty(prop)) {
-                if (window[prop] !== this.windowSnapShot[prop]) {
-                    // 更新变更属性映射表
-                    this.modifyPropsMap[prop] = window[prop];
-
-                    // 还原window属性
-                    window[prop] = this.windowSnapShot[prop];
-                }
+        // 更新属性表更表，并将window还原至快照时的样子
+        Object.keys(window).forEach(key => {
+            if (window[key] !== this.windowSnapshot[key]) {
+                this.modifyPropsMap[key] = window[key];
+                window[key] = this.windowSnapshot[key];
             }
-        }
+        })
     }
 }
 

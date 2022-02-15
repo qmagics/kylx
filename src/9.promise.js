@@ -248,6 +248,32 @@ class Promise {
             });
         });
     }
+
+    static any(promises) {
+        return new Promise((resolve, reject) => {
+            const errs = [];
+            let len = promises.length;
+
+            if (len === 0) return new AggregateError('');
+
+            promises.forEach(p => {
+                if (p && typeof p.then === 'function') {
+
+                    p.then(value => {
+                        resolve(value);
+                    }, err => {
+                        errs.push(err);
+                        if (--len === 0) {
+                            reject(new AggregateError(errs));
+                        }
+                    })
+                }
+                else {
+                    resolve(p);
+                }
+            })
+        });
+    }
 }
 
 module.exports = Promise;

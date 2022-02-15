@@ -1,3 +1,6 @@
+const dir = process.argv.slice(2)[0] || 'task';
+// const dir = `task`;
+
 const test1 = require('./test/1.curry.test');
 const test2 = require('./test/2.curry.test');
 const test6 = require('./test/6.deepClone.test');
@@ -5,13 +8,13 @@ const test7 = require('./test/7.EventEmitter.test');
 const test8 = require('./test/8.observer.test');
 const test12 = require('./test/12.bst.test');
 const test14 = require('./test/14.bind.test');
+const test14_ = require('./test/14.call+apply.test');
 const test15 = require('./test/15.flat.test');
 const test17 = require('./test/17.toTree.test');
 const test20 = require('./test/20.bubbleSort.test');
 const test21 = require('./test/21.selectionSort.test');
 const test22 = require('./test/22.insertionSort.test');
-
-const dir = `task`;
+const test31 = require('./test/31.compose.test');
 
 // 函数柯里化
 test1(require(`./${dir}/1.curry`));
@@ -32,6 +35,9 @@ test12(require(`./${dir}/12.bst`));
 // Bind
 test14(require(`./${dir}/14.bind`));
 
+// call + apply
+test14_(require(`./${dir}/14.call+apply`));
+
 // flat
 test15(require(`./${dir}/15.flat`));
 
@@ -46,3 +52,6 @@ test21(require(`./${dir}/21.selectionSort`));
 
 // 插入排序
 test22(require(`./${dir}/22.insertionSort`));
+
+// 组合函数
+test31(require(`./${dir}/31.compose`));

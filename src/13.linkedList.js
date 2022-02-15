@@ -110,6 +110,6 @@ let ll = new LinkedList();
 // ll.add(1, 100);
 // const r = ll.remove(1);
 // console.log('删掉了', r);
-// console.dir(ll, { depth: 1000 })
-console.dir(ll.reverse2(), { depth: 1000 });
-console.log(ll);
+console.dir(ll, { depth: 1000 })
+// console.dir(ll.reverse2(), { depth: 1000 });
+// console.log(ll);

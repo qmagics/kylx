@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "node index",
+    "test:src": "node index src",
     "test:promise": "promises-aplus-tests ./test/9.promise.test"
   },
   "author": "",

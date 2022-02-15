@@ -1,4 +1,4 @@
-const compose = (fns, ...args) => {
+const compose = (...fns) => {
     if (fns.length === 0) {
         return (...args) => args
     }
@@ -7,3 +7,5 @@ const compose = (fns, ...args) => {
     }
     return fns.reduce((pre, cur) => (...args) => cur(pre(...args)));
 }
+
+module.exports = compose;

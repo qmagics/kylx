@@ -1,15 +1,15 @@
-function debounce(fn, wait, immediate) {
+function debounce(fn, wait, immediate = true) {
     let timer = undefined;
 
     return function () {
-        clearTimeout(timer);
-
-        if (timer === undefined && immediate) {
+        if (immediate && !timer) {
             fn.apply(this, arguments);
         }
 
+        clearTimeout(timer);
+
         timer = setTimeout(() => {
             fn.apply(this, arguments);
-        }, wait)
+        }, wait);
     }
 }

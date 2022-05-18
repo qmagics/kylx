@@ -17,8 +17,8 @@ const test22 = require('./test/22.insertionSort.test');
 const test31 = require('./test/31.compose.test');
 
 // 函数柯里化
-test1(require(`./${dir}/1.curry`));
-test2(require(`./${dir}/2.curry`));
+// test1(require(`./${dir}/1.curry`));
+// test2(require(`./${dir}/2.curry`));
 
 // 深拷贝
 test6(require(`./${dir}/6.deepClone`));

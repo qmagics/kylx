@@ -1,3 +1,5 @@
+const { sortMethodSpeedTest } = require("./9999.utils");
+
 // 选择排序
 function selectionSort(arr) {
     const len = arr.length;
@@ -24,16 +26,18 @@ function selectionSort(arr) {
 
 module.exports = selectionSort;
 
+sortMethodSpeedTest(selectionSort);
+
 // 排序前 => [5, 3, 4, 2, 6, 1]
 
 // 第1轮 => [ 1, 3, 4, 2, 6, 5 ]
-// 
+//
 // 第2轮 => [ 1, 2, 4, 3, 6, 5 ]
-// 
+//
 // 第3轮 => [ 1, 2, 3, 4, 6, 5 ]
-// 
+//
 // 第4轮 => [ 1, 2, 3, 4, 6, 5 ]
-// 
+//
 // 第5轮 => [ 1, 2, 3, 4, 5, 6 ]
 
 // 结果 => [ 1, 2, 3, 4, 5, 6 ]

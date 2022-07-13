@@ -1,3 +1,5 @@
+const { sortMethodSpeedTest } = require("./9999.utils");
+
 function insertionSort(arr) {
     const len = arr.length;
     let preIndex, current;
@@ -19,3 +21,4 @@ function insertionSort(arr) {
 
 module.exports = insertionSort;
 
+sortMethodSpeedTest(insertionSort);

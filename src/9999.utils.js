@@ -1,4 +1,4 @@
-exports.sortMethodSpeedTest = (method, count = 100000) => {
+exports.sortMethodSpeedTest = (method, count = 10000) => {
     const arr = [];
 
     for (let i = 0; i < count; i++) {

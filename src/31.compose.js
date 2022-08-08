@@ -27,3 +27,14 @@ function composeAsync(...args) {
 }
 
 module.exports = compose;
+
+
+
+/**
+ * 顺序执行Promise
+ * @param {*} promiseArray promise队列
+ * @param {*} initialValue 初始resolve值
+ */
+export const runPromiseInsequence = async (promiseArray, initialValue) => {
+    await promiseArray.reduce((pre, cur) => pre.then(cur), Promise.resolve(initialValue));
+}

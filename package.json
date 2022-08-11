@@ -9,7 +9,7 @@
   "scripts": {
     "test": "node index",
     "test:src": "node index src",
-    "clear:task": "node script/clear-task",
+    "setup:task": "node script/setup-task",
     "test:promise": "promises-aplus-tests ./test/9.promise.test"
   },
   "author": "",

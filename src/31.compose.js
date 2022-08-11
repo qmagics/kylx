@@ -16,6 +16,7 @@ function composeAsync(...args) {
         return args[0];
     }
 
+    // 拿出一个先执行
     const init = args.pop();
     return function (...args2) {
         return args.reduceRight((pre, cur) => {

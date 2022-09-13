@@ -10,4 +10,4 @@ function getStringAppearCount(str, parentStr) {
     return parentStr.match(new RegExp(str, 'g')).length;
 }
 
-console.log(getStringAppearCount('1', '4112'))
+console.log(getStringAppearCount('12', '124112'))

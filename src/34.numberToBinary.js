@@ -17,3 +17,5 @@ function numberToBinary(num) {
 
     return result.join('');
 }
+
+console.log(numberToBinary(64));

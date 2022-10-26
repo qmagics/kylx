@@ -41,4 +41,7 @@ function quick_sort(A, lo = 0, hi = A.length) {
 // quick_sort(a);
 // console.log(a);
 
-sortMethodSpeedTest(quick_sort, 10000);
+// sortMethodSpeedTest(quick_sort, 10000);
+const A = [3, 1, 2, 5, 4, 3, 1, 2, 5, 4, 3, 1, 2, 5, 4, 3, 1, 2, 5, 4];
+quick_sort(A);
+console.log(A);

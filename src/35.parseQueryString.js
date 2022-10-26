@@ -32,4 +32,5 @@ function deepSet(o, path, value) {
     o[path[i]] = decodeURIComponent(value);
 }
 
-[s1, s2, s3, s4, s5].forEach(i => console.log(parseQueryString(i)))
+// [s1, s2, s3, s4, s5].forEach(i => console.log(parseQueryString(i)))
+[s3].forEach(i => console.log(parseQueryString(i)))

@@ -24,10 +24,7 @@ function merge(A, p, q, r) {
  * @param {*} p 要排序部分的开始，默认为0
  * @param {*} r 要排序部分的结束，默认为A.length
  */
-function merge_sort(A, p, r) {
-    p = typeof p === 'number' ? p : 0;
-    r = typeof r === 'number' ? r : A.length;
-
+function merge_sort(A, p = 0, r = A.length) {
     if (r - p < 2) return;
 
     const mid = Math.ceil((p + r) / 2);

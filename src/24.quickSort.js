@@ -1,13 +1,10 @@
-const { sortMethodSpeedTest } = require("./9999.utils");
-
 function quickSort(arr, left, right) {
     const len = arr.length;
-    let partitionIndex = undefined;
     left = typeof left === 'number' ? left : 0;
     right = typeof right === 'number' ? right : len - 1;
 
     if (left < right) {
-        partitionIndex = partition(arr, left, right);
+        const partitionIndex = partition(arr, left, right);
 
         quickSort(arr, left, partitionIndex - 1);
         quickSort(arr, partitionIndex + 1, right);
@@ -16,29 +13,26 @@ function quickSort(arr, left, right) {
     return arr;
 }
 
-function partition(arr, left, right) {//分区操作
+function partition(arr, left, right) {
+    const pivot = left;
+    let index = pivot + 1;
 
-    var pivot = left,//设定基准值（pivot）
-
-        index = pivot + 1;
-
-    for (var i = index; i <= right; i++) {
+    for (let i = index; i <= right; i++) {
         if (arr[i] < arr[pivot]) {
-            swap(arr, i, index);
+            swap(arr, index, i);
             index++;
         }
     }
 
-    swap(arr, pivot, index - 1);
+    swap(arr, index - 1, pivot);
 
     return index - 1;
-
 }
 
 function swap(arr, i, j) {
-    var temp = arr[i];
+    const t = arr[i];
     arr[i] = arr[j];
-    arr[j] = temp;
+    arr[j] = t;
 }
 
-sortMethodSpeedTest(quickSort);
+console.log(quickSort([7, 2, 1, 0, 4, 3, 5, 6]))
